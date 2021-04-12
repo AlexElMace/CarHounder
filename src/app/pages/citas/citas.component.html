@@ -1,0 +1,271 @@
+<div class="fondo">
+    <app-header></app-header>
+    <!-- Cita usuario -->
+    <div *ngIf="login != undefined && login.rol == 'cliente'">
+        <div class="container">
+            <h1>Mis citas</h1>
+            <div class="d-flex justify-content-center row mt-4">
+                <div class="sinCitas" *ngIf="citas == ''">
+                    <h3>  No hay citas disponibles </h3>
+                </div>
+                <div *ngFor="let cita of citas" class="col-10 col-md-10 bg-white border rounded mt-3">
+                    <div class="row p-2">
+                        <div class="col-md-10 mt-1 bordeTarjeta">
+                            <p>Fecha:
+                                <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span>
+                            </p>
+                            <p>Taller:
+                                <span>{{cita.nombre}}</span>
+                            </p>
+                            <p>Dirección:
+                                <span>{{cita.direccion}}</span>
+                            </p>
+                            <p>Servicios:
+                                <span>
+                                    {{cita.servicios}}
+                                </span>
+                            </p>
+                            <p>Hora:
+                                <span>{{cita.hora}}</span>
+                            </p>
+                        </div>
+                        <div class="align-self-center col-md-2">
+                            <div class="d-flex flex-column align-items-center botones">
+                                <button class="btn btn-danger btn-sm mt-3 p-2" type="button" data-toggle="modal" data-target="#cancelarCliente" data-dismiss="modal" on-click="capturar(cita.id_reservas)">Cancelar</button>
+                                <div class="modal fade" id="cancelarCliente" tabindex="-1" role="dialog" aria-labelledby="cancelarCliente" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
+                                                <button type="submit" class="btn btn-danger" on-click="borrarCitasCliente()" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- cita taller -->
+    <div *ngIf="login != undefined && login.rol == 'taller'">
+        <div class="container mt-10 mb-5">
+            <h1>Mis citas</h1>
+            <div class="d-flex justify-content-center row mt-4">
+                <div class="col-10 col-md-10 col-sm-12">
+                    <label class="filtro">Seleccionar día</label>
+                    <div class="d-flex form-group filtro">
+                        <input type="date" class="form-control" id="fechaCita" [(ngModel)]="fechacita" #fechaCitas>
+                        <button class="btn btn-sm btnEdit2 p-2" data-toggle="modal" data-target="#anyadirCita">Añadir Cita</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sinCitas" *ngIf="citas == ''">
+               <h3>  No hay citas disponibles </h3>
+            </div>
+            <div class="d-flex justify-content-center row mt-4">
+                <div *ngFor="let cita of citas" class="col-10 col-md-10 col-sm-12">
+                    <input id="fechaFormateada" #fechaFormateada value="{{cita.fecha | date: 'yyyy-MM-dd'}}">
+                    <div *ngIf="fechaCitas.value == ''; else elseBlock">
+                        <div class="row p-2 bg-white border rounded mt-3">
+                            <div class="col-md-10 mt-1 bordeTarjeta">
+                                <p>Fecha:
+                                    <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span>
+                                </p>
+                                <p>Cliente:
+                                    <span>{{cita.nombre}} {{cita.apellidos}}</span>
+                                </p>
+                                <p>Teléfono:
+                                    <span>
+                                        {{cita.telefono}}
+                                    </span>
+                                </p>
+                                <p>Servicios:
+                                    <span>
+                                        {{cita.servicios}}
+                                    </span>
+                                </p>
+                                <p>Hora:
+                                    <span>{{cita.hora}}</span>
+                                </p>
+                            </div>
+                            <div class="align-self-center col-md-2">
+                                <div class="botones">
+                                    <button class="btn btnEdit py-2 px-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar</button>
+                                    <button class="btn btn-danger py-2 px-2 mt-3" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar</button>
+                                    <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
+                                                    <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #elseBlock>
+                        <ng-container *ngIf="fechaCitas.value == fechaFormateada.value">
+                            <div class="row p-2 bg-white border rounded mt-3">
+                                <div class="col-md-10 mt-1 bordeTarjeta">
+                                    <p>Fecha:
+                                        <span>{{cita.fecha | date: 'EEEE, d'}} de {{cita.fecha | date: 'MMMM'}} de {{cita.fecha | date: 'yyyy'}}</span>
+                                    </p>
+                                    <p>Cliente:
+                                        <span>{{cita.nombre}} {{cita.apellidos}}</span>
+                                    </p>
+                                    <p>Teléfono:
+                                        <span>
+                                            {{cita.telefono}}
+                                        </span>
+                                    </p>
+                                    <p>Servicios:
+                                        <span>
+                                            {{cita.servicios}}
+                                        </span>
+                                    </p>
+                                    <p>Hora:
+                                        <span>{{cita.hora}}</span>
+                                    </p>
+                                </div>
+                                <div class="align-self-center col-md-2">
+                                    <div class="botones">
+                                        <button class="btn btnEdit py-2 px-2" data-toggle="modal" data-target="#modificarCita" on-click="prueba(cita.fecha, cita.hora); capturar(cita.id_reservas); mostrarHorasReservadas()">Modificar</button>
+                                        <button class="btn btn-danger py-2 px-2 mt-3" type="button" data-toggle="modal" data-target="#cancelarTaller" on-click="capturar(cita.id_reservas)">Cancelar</button>
+                                        <div class="modal fade" id="cancelarTaller" tabindex="-1" role="dialog" aria-labelledby="cancelarTaller" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btnEdit" data-dismiss="modal">No</button>
+                                                        <button type="submit" class="btn btn-danger" on-click="borrarCitasTaller()" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal modificar -->
+<div class="modal fade" id="modificarCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modificar cita</h5>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" class="form-control" id="fechaM" value="{{carApiService.fechaP | date: 'dd/MM/yyyy'}}" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaM>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <select class="form-control" id="horaM" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaM>
+                        <option *ngFor="let hora of mostrarHoras">
+                            {{hora}}
+                        </option>
+                    </select>
+                </div>
+                <br>
+                <div class="modal-footer text-align-center">
+                <button type="button" class="btn boton1" data-dismiss="modal" on-click="modificarCita(fechaM.value, horaM.value)">Modificar cita</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- Modal añadir -->
+<div class="modal fade modalAnyadir" id="anyadirCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Añadir cita</h5>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close" on-click="mostrarHorasReservadas()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" id="fechaA" [(ngModel)]="fechaFiltrada" [ngModelOptions]="{standalone: true}" #fechaA>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <select class="form-control" id="horaA" value="{{carApiService.horaP}}" on-click="actualizarHoras()" #horaA>
+                        <option *ngFor="let hora of mostrarHoras">
+                            {{hora}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nombre del cliente</label>
+                    <input type="text" class="form-control" id="nombreA" #nombreA>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input type="text" class="form-control" id="apellidosA" #apellidosA>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" class="form-control" id="telefonoA" #telefonoA>
+                </div>
+                <div class="form-group">
+                    Servicios
+                    <div *ngFor="let servicio of servicios; let i = index">
+
+                        <div *ngIf = "servicio.id_taller == carApiService.tallerLogin.id_taller">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" on-click="anyadirServicio(servicio.descripcion, prueba.value)" value={{i}} id={{i}} #prueba>
+                                <label class="form-check-label" for="aceite">
+                                    {{servicio.descripcion}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-align-center">
+                <button type="button" class="btn boton1 botonCambio" data-dismiss="modal" on-click="registrarCliente(nombreA.value, apellidosA.value, telefonoA.value, fechaA.value, horaA.value)">Añadir cita</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

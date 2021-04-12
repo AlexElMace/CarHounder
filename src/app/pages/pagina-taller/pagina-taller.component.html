@@ -1,0 +1,66 @@
+<div id="imagenFondo">
+  <app-header></app-header>
+  <div id="all">
+       <div class="container">
+      <div id="frontal" class="card h-100">
+        <img src="../../assets/img/fotoFondos/{{taller.foto}}" class="card-img-top img-fluid imagenCab" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Información</h5>
+          <p class="card-text">
+            {{taller.nombre}}<br>
+            {{taller.direccion}} - {{taller.cp}} {{taller.ciudad}} - {{taller.provincia}}<br>
+            {{taller.telefono}}<br>
+            {{taller.email}}
+          </p>
+          <h5 class="card-title">Servicios</h5>
+          <p class="card-text">
+          <div *ngFor="let servicio of servicios">
+            <div *ngIf="servicio.id_taller == taller.id_taller">
+              <p class="serviciosIconos">
+                <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}"> {{servicio.descripcion}}
+              </p>
+            </div>
+          </div>
+          <h5 class="card-title">Ofertas</h5>
+          <div *ngIf="oferta != null">
+            <p class="card-text">
+              {{oferta.oferta}}
+            </p>
+          </div>
+          <div *ngIf="oferta == null">
+            <p class="card-text">
+            No hay ofertas disponibles
+          </div>
+        </div>
+        <div id="botonInfo">
+          <app-modal-citas></app-modal-citas>
+          <button type="submit" class="btn btn-primary" on-click="postChat(taller.id_taller)" [hidden]="invisible">Chat</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#citas" [hidden]="invisible" on-click="mostrarHorasReservadas()">Pedir Cita</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="all1" >
+    <div class="container"  >
+      <div class="card h-20" id="fondoResenya" >
+        <div class="card-body" >
+          <h5 class="card-title">Reseñas</h5>
+          <p class="card-text ">
+          <div *ngIf="resenyas.length !== 0">
+          <div class="card " id="tarjetaRes" *ngFor="let resenya of resenyas">
+            <div class="card-body">
+              <h5 class="card-title">{{resenya.nombre}} {{resenya.apellidos}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{resenya.nota}} estrella/s</h6>
+              <p class="card-text">{{resenya.comentario}}.</p>
+            </div>
+          </div>
+        </div>
+          <div *ngIf="resenyas.length == 0">
+            No hay reseñas
+          </div>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

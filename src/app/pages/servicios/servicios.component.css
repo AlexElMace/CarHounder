@@ -1,0 +1,77 @@
+
+#servicios{
+    background-image: url("/../../assets/img/fotoFondos/servicioFoto.png");
+    position: absolute;
+    height: 100%; 
+    width: 100%;
+    background-position: center center;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F1F1F2;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: auto;
+}
+
+
+.contenido{
+    background-color: #F1F1F2;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    height: 25px;
+}
+
+.separacion{
+    height: 120px;
+}
+
+p {
+    text-align: left;
+    padding: 0px 80px 0px 80px;
+}
+
+
+
+@media screen and (min-height: 1366px){
+
+    #sevicios{
+
+        height: 1366px;
+        
+    }
+    .separacion{
+        height: 398px;
+    }
+
+}
+
+@media screen and (min-height: 1024px){
+
+    p {
+        text-align: left;
+        padding: 0px 20px 0px 20px;
+    }
+    .separacion{
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 411px){
+    h1{
+        font-size: 25px;
+    }
+    p {
+        text-align: left;
+        padding: 0px 20px 0px 20px;
+    }
+}
+
+@media screen and (min-width: 1025px){
+    #servicios{
+        height: 1036px;
+    }
+}

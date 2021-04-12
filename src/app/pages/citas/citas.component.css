@@ -1,0 +1,215 @@
+.fondo{
+    background-image: url("src/assets/img/fotoFondos/calendariofondo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    justify-content: center;
+    height:100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
+h1{
+    text-align: center;
+    color: #F1F1F2;
+}
+
+.container{
+    padding-top: 140px;
+    padding-bottom: 80px;
+}
+
+p{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+span{
+    padding-left:15px;
+    font-weight: 300;
+}
+
+.container label{
+    color: #F1F1F2;
+    font-weight: 600;
+    font-size: 20px;
+    text-align:start;
+    margin-left: -15px;
+}
+
+.filtro input{
+    width: 218px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-left: -15px;
+}
+
+.filtro button{
+    margin-right: -15px
+}
+
+.filtro{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnEdit{
+    color:white;
+    background-color: #0466C8;
+    font-size:16px;
+    font-weight: 300;
+}
+
+.btnEdit2{
+    color:white;
+    background-color: #0466C8;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.btn-danger{
+    font-size:16px;
+    font-weight: 300;
+}
+
+.boton1{
+
+    background-color: #0466C8;
+    color: #F1F1F2;
+}
+
+.botones{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bordeTarjeta{
+    border-right-color: #e4e1e1;
+    border-right-style:solid;
+    border-right-width: 1px;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+
+}
+
+#iconosService{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+#fechaFormateada{
+    display: none;
+}
+
+.sinCitas{
+    text-align: center;
+    color: #F1F1F2;
+    font-size: 50px;
+    margin-top: 40px;
+}
+
+.notify {
+    /* defaults */
+    --notify-error: #eb5757;
+    --notify-success: #6fcf97;
+    --notify-warning: #f2c94c;
+    --notify-gray: #333333;
+    --notify-gray-2: #4d4d4d;
+    --notify-gray-3: #828282;
+    --notify-white: #fff;
+    --notify-white-2: rgba(255, 255, 255, 0.8);
+    --notify-padding: 0.75rem;
+    --notify-icon-size: 32px;
+    --notify-close-icon-size: 16px;
+  }
+
+
+  @media screen and (min-width: 1200px){
+    .btn-danger{
+        width: 120px;
+    }
+
+    .btnEdit{
+        width: 120px;
+    }
+}
+
+  @media screen and (max-width: 992px){
+    .botones{
+        margin-left:10px
+    }
+
+}
+
+@media screen and (max-width: 767px){
+    .col-md-10{
+        border-right-style: none;
+    }
+
+    .container{
+        padding-top: 140px;
+        padding-bottom: 100px;
+    }
+
+    .botones{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        align-self: center;
+    }
+
+    .btn-danger{
+        margin-left: 10px;
+    }
+
+    .btnEdit2{
+        font-size: 15px;
+        margin-left: 10px;
+    }
+
+    .btnEdit{
+        margin-top: 1rem;
+    }
+
+}
+
+
+
+@media screen and (max-width: 427px){
+    .btnEdit2{
+        font-size: 14px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .filtro{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+    }
+    .filtro button {
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+    .filtro input {
+        margin-left: 0px;
+    }
+}

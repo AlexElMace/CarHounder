@@ -1,0 +1,308 @@
+#imagenFondo{
+    background-image: url("src/assets/img/fotoFondos/sobnosfondo.png");
+    background-position: center center;
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #F1F1F2;
+    color: #f1f1f2;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
+.separacion{
+    height: 140px;
+}
+
+.sep{
+    height: 100px;
+}
+
+#logo{
+   
+    width: 330px;
+    height: 90px;
+}
+
+.a{
+    text-decoration: none;
+    color: #001233;
+}
+
+.a:hover{
+    cursor: pointer;
+    color:#001233;
+    text-decoration: none;
+}
+
+.desplegable:hover{
+    cursor: pointer;
+}
+
+.titulo{
+    text-align: center;
+}
+
+#mensajes{
+    background-color: #F1F1F2;
+    height: 200px;
+    border: 1px solid #f1f1f2;
+	background: #f1f1f2;
+	overflow-y: scroll;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    resize: none;
+    color: #001233;
+}
+
+#mensaje{
+    background-color: #F1F1F2;
+}
+
+#listado{
+    height: 294px;
+	width: 300px;
+	border: 1px solid #ddd;
+	background: #f1f1f2;
+	overflow-y: scroll;
+}
+
+textarea{
+    background-color: #F1F1F2;
+    resize: none;
+    color: #001233;
+}
+
+h5{
+    color: #001233;
+}
+
+#boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+}
+
+.chat{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.boton1{
+    background-color: #0466c8;
+    color: #F1F1F2;
+}
+
+.foto{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#botonContactos{
+    display: none;
+    margin-bottom: 20px;
+}
+
+.a{
+    padding-left: 10px;
+}
+
+#papelera{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#eliminar{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+}
+
+#fotoChat:hover{
+    cursor: pointer;
+}
+
+#rol{
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 500px;
+    background-color: rgb(250, 250, 195);
+    margin-left: auto;
+}
+
+#noRol{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 500px;
+    background-color: rgb(169, 241, 169);
+}
+
+.notify {
+    /* defaults */
+    --notify-error: #eb5757;
+    --notify-success: #6fcf97;
+    --notify-warning: #f2c94c;
+    --notify-gray: #333333;
+    --notify-gray-2: #4d4d4d;
+    --notify-gray-3: #828282;
+    --notify-white: #fff;
+    --notify-white-2: rgba(255, 255, 255, 0.8);
+    --notify-padding: 0.75rem;
+    --notify-icon-size: 32px;
+    --notify-close-icon-size: 16px;
+  }
+
+@media screen and (min-width: 320px){
+
+    #imagenFondo{
+        height: 650px;
+    }
+
+}
+
+@media screen and (max-width: 990px){
+
+    #rol{
+        width: 200px;
+    }
+    #noRol{
+        width: 200px;
+    }
+
+}
+
+@media screen and (min-width: 410px){
+
+    #imagenFondo{
+        height: 700px;
+    }
+
+}
+
+@media screen and (max-width: 770px){
+
+    .row{
+        flex-direction: column;
+    }
+
+    #listado{
+        display: none;
+    }
+    #botonContactos{
+        display: block;
+    }
+
+}
+
+@media screen and (max-width: 780px){
+
+    #logo{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 990px){
+
+    #rol{
+        width: 300px;
+    }
+    #noRol{
+        width: 300px;
+    }
+
+}
+
+@media screen and (min-height: 810px){
+
+    #imagenFondo{
+        height: 812px;
+    }
+
+}
+
+@media screen and (min-height: 820px){
+
+    #imagenFondo{
+        height: 823px;
+    }
+
+}
+
+@media screen and (min-height: 900px){
+
+    #imagenFondo{
+        height: 1020px;
+    }
+    #listado{
+        height: 594px;
+    }
+    #mensajes{
+        height: 500px;
+    }
+
+}
+
+@media screen and (min-height: 1020px){
+
+    #imagenFondo{
+        height: 1024px;
+    }
+    #listado{
+        height: 694px;
+    }
+    #mensajes{
+        height: 600px;
+    }
+    #rol{
+        width: 500px;
+    }
+    #noRol{
+        width: 500px;
+    }
+
+}
+
+@media screen and (min-height: 1360px){
+
+    #imagenFondo{
+        height: 1366px;
+    }
+    #listado{
+        height: 994px;
+    }
+    #mensajes{
+        height: 900px;
+    }
+    #rol{
+        width: 500px;
+    }
+    #noRol{
+        width: 500px;
+    }
+
+}
+
+@media screen and (min-width: 1025px){
+    
+    #imagenFondo{
+        height: 980px;
+    }
+}
+
+@media screen and (min-width: 1900px){
+    
+    #imagenFondo{
+        height: 1080px;
+    }
+}

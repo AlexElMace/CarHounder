@@ -1,0 +1,231 @@
+  <div class="fondo">
+    <app-header></app-header>
+    <div class="container">
+      <h1>Tu perfil</h1>
+      <div class="d-flex justify-content-center row mt-4">
+        <div class="col-10 col-md-10 border rounded caja">
+          <div class="row mt-3">
+            <div class="col-md-3 imagenPerfil d-flex flex-column align-items-center mt-3">
+              <span class="btn btn-file">
+                <input #fotoPerfil type="file" on-change="editarFotoTaller(fotoPerfil.value)"><img  #foto  src="../../assets/img/fotoFondos/{{apiService.tallerLogin.foto}}">
+              </span>
+              <br>
+              <button type="button" class="btn btnEdit1 btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#cambiarPassword">Modificar contraseña</button>
+              <!-- <button type="button" class="btn btnEdit1 btn-sm" data-dismiss="modal" on-click = "cambiarFoto(foto.src)">Modificar Foto</button> -->
+              <button type="button" class="btnDel btn btn-danger btn-sm" data-toggle="modal"
+                data-target="#perfilTallerEliminar">Eliminar perfil</button>
+              <div class="modal fade" id="perfilTallerEliminar" tabindex="-1" role="dialog" aria-labelledby="perfilTallerEliminar"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btnEdit1" data-dismiss="modal">No</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" on-click = "eliminarTaller()">Eliminar Perfil</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9 mt-3">
+              <div class="d-flex flex-column align-items-flex-start">
+                <form>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Taller</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #nombre value="{{apiService.tallerLogin.nombre}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label" >Dirección</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #direccion value="{{apiService.tallerLogin.direccion}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Ciudad</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #ciudad value="{{apiService.tallerLogin.ciudad}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Codigo Postal</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #cp value="{{apiService.tallerLogin.cp}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Provincia</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #provincia value="{{apiService.tallerLogin.provincia}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">NIF/CIF</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #cif value="{{apiService.tallerLogin.cif}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #email value="{{apiService.tallerLogin.email}}" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Teléfono</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" #telefono value="{{apiService.tallerLogin.telefono}}">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Ofertas</label>
+                    <div class="col-sm-9">
+                      <textarea #oferta class="form-control" id="ofertas" #ofertas value="{{oferta1.oferta}}"></textarea>
+                    </div>
+                  </div>
+                  <div>
+                  <div class="form-group row">
+                    <label class="col col-form-label">Servicios</label>
+                    <div class="col-sm-9" >
+                      <div class="form-check" >
+                        <input class="form-check-input" type="checkbox" value="1" on-click="anyadirServicio(1,'1')" id="1">
+                        <label class="form-check-label">
+                          Cambio de aceite
+                        </label>
+                      </div>  
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="2" on-click="anyadirServicio(2,'2')" id="2">
+                        <label class="form-check-label">
+                          Sustitución de correa de distribución
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="3" on-click="anyadirServicio(3,'3')" id="3">
+                        <label class="form-check-label">
+                          Sustitución de embrague
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="4"  on-click="anyadirServicio(4,'4')" id="4">
+                        <label class="form-check-label">
+                          Cambio de pastillas y discos de freno
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="5"  on-click="anyadirServicio(5,'5')" id="5">
+                        <label class="form-check-label">
+                          Sustitución de neumáticos
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="6"  on-click="anyadirServicio(6,'6')" id="6">
+                        <label class="form-check-label">
+                          Chapa y pintura
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="7" on-click="anyadirServicio(7,'7')" id="7">
+                        <label class="form-check-label">
+                          Revisión completa
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="8" on-click="anyadirServicio(8,'8')" id="8">
+                        <label class="form-check-label">
+                          Diagnosis del vehículo
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="9" on-click="anyadirServicio(9,'9')" id="9">
+                        <label class="form-check-label">
+                          Fallos eléctricos
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="10" on-click="anyadirServicio(10,'10')" id="10">
+                        <label class="form-check-label">
+                          Fallos de motor
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="11" on-click="anyadirServicio(11,'11')" id="11">
+                        <label class="form-check-label">
+                          Sustitución de amortiguadores
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="12" on-click="anyadirServicio(12,'12')" id="12">
+                        <label class="form-check-label">
+                          Sustitución de escape
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="13" on-click="anyadirServicio(13,'13')" id="13">
+                        <label class="form-check-label">
+                          Sustitución del turbo
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="14" on-click="anyadirServicio(14,'14')" id="14">
+                        <label class="form-check-label">
+                          Revisión pre-ITV
+                        </label>
+                      </div>
+                  </div>
+                    
+
+                  </div>
+                </div>
+                  <div class="d-flex flex-column align-items-center">
+                    <button type="button" class="btnEdit btn btn-sm mb-3" on-click="editarTaller(email.value, nombre.value, cif.value, direccion.value, cp.value, ciudad.value, provincia.value, telefono.value, oferta.value)">Modificar perfil</button>
+                </div>                
+                </form>
+                <!-- modal password -->
+                <div class="modal fade" id="cambiarPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Modificar contraseña</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                          </div>
+                          <div class="modal-body">
+                              <form>
+                                  <div class="form-group">
+                                  <label for="exampleInputPassword1">Contraseña Anterior</label>
+                                  <input #passwordAnterior type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña anterior" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">Contraseña Nueva</label>
+                                    <input #passwordNuevo type="password" class="form-control" id="contInicio" placeholder="Introduzca su contraseña nueva" required>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Repita contraseña nueva</label>
+                                      <input #passwordRepetir type="password" class="form-control" id="contInicio" placeholder="Repita su contraseña nueva" required>
+                                      </div>
+                                  <div class="modal-footer">
+                                      <button type="submit" class="btn boton1" on-click="password_Anterior(passwordAnterior.value,passwordNuevo.value, passwordRepetir.value)" data-dismiss="modal" >Modificar</button>
+                                      <button type="submit" class="btn boton2" data-dismiss="modal" >Cancelar</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<app-footer></app-footer>

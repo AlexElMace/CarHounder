@@ -1,0 +1,319 @@
+#imagenFondo{
+    background-image: url("src/assets/img/fotoFondos/busquedatallerfondo.png");
+    background-position: center center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+}
+
+#filtroResponsive{
+    position: absolute;
+    width: 650px;   
+}
+
+.btn-lg{
+    height: 40px;
+    font-size: 15px;
+    width: 200px;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.iconosService{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#parteAbajo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 100px 0px 0px 0px;
+    margin-bottom: 250px;
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#filtros{
+    width: 1010px;
+    background-color: #F1F1F2;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion{
+    width: 400px;
+    padding-top: 18px;
+}
+
+#filtrosAll{
+    margin-top: -40px;
+}
+
+#demo{
+  color: #16181b;
+  text-decoration: none;
+  background-color: #F1F1F2;
+  position: absolute;
+  padding: 20px;
+  z-index: 100;
+}
+
+textarea{
+    resize: none;
+}
+
+
+.botonFiltros{
+    background-color: #0466c8;
+    color: #F1F1F2;
+    width: 650px;
+}
+
+.botonFiltros1{
+    background-color: #0466c8;
+    color: #F1F1F2;
+    width: 150px;
+    margin-bottom: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-link:link, .btn-link:visited, .btn-link:active,.btn-link:hover,.btn-link:focus {
+    text-decoration:none;
+}
+
+.filtroSelecciones{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.talleres {
+    width: 1000px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom:180px;
+}
+
+/* TARJETA TALLER */
+
+.product-image {
+    width: 200px;
+    height: 200px;
+}
+
+h5 {
+    font-weight: 400px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.icono {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+#valoraciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.numberValue{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    border: none;
+    outline: none;
+    width: 200px;
+}   
+
+.btnEdit1{
+    color:white;
+    background-color: #0466C8;
+}
+
+.ec-stars-wrapper {
+
+	font-size: 0;
+	display: inline-block;
+}
+
+.ec-stars-wrapper a {
+	text-decoration: none;
+	display: inline-block;
+	font-size: 32px;
+	font-size: 2rem;
+	color: #888;
+}
+
+h3{
+    color: #F1F1F2;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ec-stars-wrapper:hover a {
+	color: #0466C8;
+}
+.ec-stars-wrapper > a:hover ~ a {
+	color: #888;
+}
+
+#espacioAbajo{
+    width: 100px;
+    height: 450px;
+}
+
+#fraseSinTaller{
+    color: #f1f1f2;
+    text-align: center;
+    padding: 30px;
+}
+
+.botones{
+    width: 190px;
+}
+
+#masDetalles{
+    height: 40px;
+}
+
+.bordeTarjeta{
+    border-left-color: #E4E1E1;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
+.notify {
+    --notify-error: #eb5757;
+    --notify-success: #6fcf97;
+    --notify-warning: #f2c94c;
+    --notify-gray: #333333;
+    --notify-gray-2: #4d4d4d;
+    --notify-gray-3: #828282;
+    --notify-white: #fff;
+    --notify-white-2: rgba(255, 255, 255, 0.8);
+    --notify-padding: 0.75rem;
+    --notify-icon-size: 32px;
+    --notify-close-icon-size: 16px;
+  }
+
+/* Media Query */
+@media only screen and (max-width: 1500px) {
+
+    #parteAbajo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media only screen and (max-width: 1370px) {
+
+    .talleres {
+        width: 800px;
+        height: 20px;
+    }
+
+    .accordion{
+        width: 352px;
+    }
+
+}
+
+@media only screen and (max-width: 850px) {
+
+    .talleres {
+        width: 700px;
+        height: 5px;
+    }
+
+    .product-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .numberValue{
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .botones{
+        font-size: small;
+        width: 160px;
+    }
+
+    #masDetalles{
+        height: 40px;
+        font-size: medium;
+    }
+    .ec-stars-wrapper a {
+        font-size: 25px;
+    }
+
+    #valoraciones p{
+        font-size: 13px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    #botonFiltros{
+        margin-top: 30px;
+        width: 300px;
+    }
+
+    #filtroResponsive{
+        width: 300px;
+    }
+
+    #collapseExample{
+        margin: 0px 30px 0px 30px;
+    }
+
+    .fichaTaller {
+        margin-left: 160px;
+        width: 352px;
+        height: 600px;
+        display: flex;
+        flex-direction: row;
+        align-items: center center;
+        margin-left: 163px;
+    }
+
+    .product-image {
+       margin-left: 60px;
+    }
+
+    #valoraciones {
+        width: 250px;
+        margin-left: 30px;
+    }
+
+    .tarjeta{
+        height: 750px;
+    }
+
+    .botones{
+        font-size: medium;
+        width: 190px;
+    }
+
+    .bordeTarjeta{
+    border-left-style: none;
+}
+
+}

@@ -1,0 +1,29 @@
+<div id="imagenFondo">
+  <div id="all" >
+    <app-header></app-header>
+    <div class="container">
+      <h1>Contacta con nosotros</h1>
+      <div id="formulario" >
+          <form>
+              <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" #nombre required>
+                </div>
+              <div class="mb-3">
+                <label for="correo" class="form-label" >Correo Electrónico</label>
+                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" #correo required>
+              </div>
+              <div class="mb-3">
+                <label for="asunto" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="asunto" #asunto required>
+              </div>
+              <div class="mb-3">
+                  <label for="mensaje" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="mensaje" rows = "10" #mensaje required></textarea >
+                </div>
+              <button type="submit" class="btn"  on-click="recogerdatos(nombre.value, correo.value, asunto.value, mensaje.value)" >Enviar</button>
+            </form>
+        </div>
+  </div>
+</div>
+<app-footer></app-footer>

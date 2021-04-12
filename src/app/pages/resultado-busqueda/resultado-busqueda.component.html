@@ -1,0 +1,374 @@
+<div id="imagenFondo">
+    <app-header></app-header>
+    <div id="parteAbajo">
+        <div id="filtrosAll">
+            <h3>Filtrar búsqueda</h3>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Servicios
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input #aceite class="form-check-input" type="checkbox" value="1" id="aceiteFilter" on-click = "anyadirServicioFiltro(aceite.value,'aceiteFilter')">
+                                <label class="form-check-label" for="aceiteFilter">
+                                    Cambio de aceite
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #distribucion class="form-check-input" type="checkbox" value="2" id="correaFilter" on-click = "anyadirServicioFiltro(distribucion.value,'correaFilter')">
+                                <label class="form-check-label" for="correaFilter">
+                                    Sustitución de correa distribución
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #embrague class="form-check-input" type="checkbox" value="3" id="embragueFilter" on-click = "anyadirServicioFiltro(embrague.value,'embragueFilter')">
+                                <label class="form-check-label" for="embragueFilter">
+                                    Sustitución de embrague
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #pastillas class="form-check-input" type="checkbox" value="4" id="frenosFilter" on-click = "anyadirServicioFiltro(pastillas.value,'frenosFilter')">
+                                <label class="form-check-label" for="frenosFilter">
+                                    Cambio de pastillas y discos de frenos
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #neumaticos class="form-check-input" type="checkbox" value="5" id="neumaticosFilter" on-click = "anyadirServicioFiltro(neumaticos.value,'neumaticosFilter')">
+                                <label class="form-check-label" for="neumaticosFilter">
+                                    Sustitución de neumáticos
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #chapa class="form-check-input" type="checkbox" value="6" id="chapaFilter" on-click = "anyadirServicioFiltro(chapa.value,'chapaFilter')">
+                                <label class="form-check-label" for="chapaFilter">
+                                    Chapa y pintura
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #completa  class="form-check-input" type="checkbox" value="7" id="completaFilter" on-click = "anyadirServicioFiltro(completa.value,'completaFilter')">
+                                <label class="form-check-label" for="completaFilter">
+                                    Revisión Completa
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #diagnosis class="form-check-input" type="checkbox" value="8" id="diagnosisFilter" on-click = "anyadirServicioFiltro(diagnosis.value,'diagnosisFilter')">
+                                <label class="form-check-label" for="diagnosisFilter">
+                                    Diagnosis del vehículo
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #electricos  class="form-check-input" type="checkbox" value="9" id="electricosFilter" on-click = "anyadirServicioFiltro(electricos.value,'electricosFilter')">
+                                <label class="form-check-label" for="electricosFilter">
+                                    Fallos eléctricos
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #motor class="form-check-input" type="checkbox" value="10" id="motorFilter" on-click = "anyadirServicioFiltro(motor.value,'motorFilter')">
+                                <label class="form-check-label" for="motorFilter">
+                                    Fallos de motor
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #amortiguadores class="form-check-input" type="checkbox" value="11" id="amortiguadoresFilter" on-click = "anyadirServicioFiltro(amortiguadores.value,'amortiguadoresFilter')">
+                                <label class="form-check-label" for="amortiguadoresFilter">
+                                    Sustitución de amortiguadores
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #escape class="form-check-input" type="checkbox" value="12" id="escapeFilter" on-click = "anyadirServicioFiltro(escape.value,'escapeFilter')">
+                                <label class="form-check-label" for="escapeFilter">
+                                    Sustitución de escape
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #turbo class="form-check-input" type="checkbox" value="13" id="turboFilter" on-click = "anyadirServicioFiltro(turbo.value,'turboFilter')">
+                                <label class="form-check-label" for="turboFilter">
+                                    Sustitución del turbo
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #itv class="form-check-input" type="checkbox" value="14" id="itvFilter" on-click = "anyadirServicioFiltro(itv.value,'itvFilter')">
+                                <label class="form-check-label" for="itvFilter">
+                                    Revisión pre-ITV
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn botonFiltros1" on-click="filtrarPorServicio()">Filtrar</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Valoración
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input #valor0 class="form-check-input" type="radio" name="flexRadioDefault" value="0" id="estrella0" on-click="anyadirPuntuacionFiltro(valor0.value,'estrella0')" checked>
+                                <label class="form-check-label" for="estrella0">
+                                    Todas las puntuaciones
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #valor1 class="form-check-input" type="radio" name="flexRadioDefault" value="1" id="unaEstrella" on-click="anyadirPuntuacionFiltro(valor1.value,'unaEstrella')">
+                                <label class="form-check-label" for="unaEstrella">
+                                    +1 estrella
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #valor2 class="form-check-input" type="radio" name="flexRadioDefault" value="2" id="dosEstrella" on-click="anyadirPuntuacionFiltro(valor2.value,'dosEstrella')">
+                                <label class="form-check-label" for="dosEstrella">
+                                    +2 estrellas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #valor3 class="form-check-input" type="radio" name="flexRadioDefault" value="3" id="tresEstrella" on-click="anyadirPuntuacionFiltro(valor3.value,'tresEstrella')">
+                                <label class="form-check-label" for="tresEstrella">
+                                    +3 estrellas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #valor4 class="form-check-input" type="radio" name="flexRadioDefault" value="4" id="cuatroEstrella" on-click="anyadirPuntuacionFiltro(valor4.value,'cuatroEstrella')">
+                                <label class="form-check-label" for="cuatroEstrella">
+                                    +4 estrellas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input #valor5 class="form-check-input" type="radio" name="flexRadioDefault" value="5" id="cincoEstrella" on-click="anyadirPuntuacionFiltro(valor5.value,'cincoEstrella')">
+                                <label class="form-check-label" for="cincoEstrella">
+                                    5 estrellas
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn botonFiltros1" on-click="filtrarPorPuntuacion()">Filtrar</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Código postal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <input #postal type="text" class="form-control" id="codigoPostal" placeholder="Introduce un código postal">
+                        </div>
+                        <button class="btn botonFiltros1" on-click="conseguirTalleres(postal.value)">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="talleres.length != 0" class="talleres">
+
+            <div *ngFor="let taller of talleres" class="fichaTaller row p-2 bg-white border rounded mt-2 tarjeta">
+                <div  class="col-md-3 mt-1"><img
+                        class="img-fluid img-responsive rounded product-image "
+                        src="../../assets/img/fotoFondos/{{taller.foto}}">
+                </div>
+                <div  class="col-md-6 mt-1">
+                    <h4>{{taller.nombre}}</h4>
+                    <div>
+                        <p class="caracteristicas">
+                            {{taller.direccion}}<br>
+                            {{taller.ciudad}}
+                        </p>
+                    </div>
+                    <h5>Servicios:</h5>
+                    <div class="iconosService">
+                        <div *ngFor="let servicio of servicios">
+                            <div *ngIf="servicio.id_taller == taller.id_taller">
+                                <p class="serviciosIconos">
+                                    <img class="icono" src="{{servicio.icono}}" title="{{servicio.descripcion}}">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 mt-1 bordeTarjeta">
+                    <div id="valoraciones" >
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">Valoración</h4><span class="strike-text"></span>
+                        </div>
+                        <div>
+                            <h4> {{taller.notaMedia}} </h4> 
+                        </div>
+                        <div *ngIf="taller.notaMedia == null">
+                            <p>No hay valoraciones</p>
+                        </div>
+                        <div class="ec-stars-wrapper" [hidden]="invisible">
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="1" data-toggle="modal" data-target="#votacion1"
+                                title="Votar con 1 estrellas">&#9733;</a>
+                                <div class="modal fade" id="votacion1" tabindex="-1" role="dialog" aria-labelledby="votacion1"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                                    <textarea #comentario1 class="form-control" rows="10"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal"  class="btn btnEdit1" on-click="anyadirResenya(comentario1.value,1)">Añadir
+                                                        comentario</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)" data-value="2" data-toggle="modal" data-target="#votacion2"
+                                title="Votar con 2 estrellas">&#9733;</a>
+                                <div class="modal fade" id="votacion2" tabindex="-1" role="dialog" aria-labelledby="votacion2"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                                    <textarea #comentario2 class="form-control" rows="10"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal"  class="btn btnEdit1" on-click="anyadirResenya(comentario2.value,2)">Añadir
+                                                        comentario</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="3" data-toggle="modal" data-target="#votacion3"
+                                title="Votar con 3 estrellas">&#9733;</a>
+                                <div class="modal fade" id="votacion3" tabindex="-1" role="dialog" aria-labelledby="votacion3"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                                    <textarea #comentario3 class="form-control" rows="10"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal" class="btn btnEdit1" on-click="anyadirResenya(comentario3.value,3)" >Añadir
+                                                        comentario</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="4" data-toggle="modal" data-target="#votacion4"
+                                title="Votar con 4 estrellas">&#9733;</a>
+                                <div class="modal fade" id="votacion4" tabindex="-1" role="dialog" aria-labelledby="votacion4"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                                    <textarea #comentario4 class="form-control" rows="10"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal"  class="btn btnEdit1" on-click="anyadirResenya(comentario4.value,4)" >Añadir
+                                                        comentario</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="estrella" on-click="publicarRes(taller.id_taller)"  data-value="5" data-toggle="modal" data-target="#votacion5"
+                                title="Votar con 5 estrellas">&#9733;</a>
+                            <div class="modal fade" id="votacion5" tabindex="-1" role="dialog" aria-labelledby="votacion5"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Añade un comentario</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                                    <textarea #comentario5 class="form-control" rows="10"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" data-dismiss="modal" class="btn btnEdit1" on-click="anyadirResenya(comentario5.value,5)" >Añadir
+                                                        comentario</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column mt-2" id="botonesAll">
+                            <button id="masDetalles" on-click="detallesTaller(taller.id_taller)" class="btn btn-primary  botones" type="button">Más detalles</button>
+                            <button on-click="postChat(taller.id_taller)" class="btn btn-outline-primary  mt-2 botones" type="button" [hidden]="invisible">Chat</button>
+                            <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'none' : 'block' }" on-click="anyadirFavoritos(taller.id_taller);pushNotify()" class="btn btn-outline-primary   mt-2 botones" type="button" [hidden]="invisible">Añadir a favoritos</button>  
+                            <button [ngStyle]="{'display': talleresFav.includes(taller.id_taller) ? 'block' : 'none' }" on-click="eliminarFavorito(taller.id_taller);pushNotify1()" class="btn   mt-2 btn-danger botones" type="button" [hidden]="invisible">Eliminar de favoritos</button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div *ngIf="talleres.length == 0 ">
+            <h1 id="fraseSinTaller"> Lo sentimos, no se han encontrado talleres en su zona. </h1>
+        </div>
+
+    </div>
+    <app-footer></app-footer>
+</div>
